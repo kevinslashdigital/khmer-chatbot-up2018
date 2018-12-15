@@ -93,7 +93,7 @@ class App extends Component {
         {/* <script async defer src="https://buttons.github.io/buttons.js"></script> */}
         <link href='https://fonts.googleapis.com/css?family=Bayon|Francois+One' rel='stylesheet' type='text/css'></link>
       
-        <div style={{flex:1,flexDirection:'row' ,display: 'flex',backgroundColor:'Gainsboro',justifyContent:'space-between', paddingTop:10, paddingBottom:10, paddingLeft: 20,paddingRight:20, borderBottom:'1px solid #ccc' }}>
+        <div style={{flex:1,display: 'flex',backgroundColor:'Gainsboro',paddingTop:10, paddingBottom:10, paddingLeft: 20,paddingRight:20, borderBottom:'1px solid #ccc', position: 'fixed', top: 0,left: 0, right: 0, zIndex:99}}>
           <div style={{flex:1, display:'flex', justifyContent:'flex-start'}}>
             <img src={sarika} alt="Smiley face" height="42" width="42"></img>
           </div>
@@ -102,19 +102,18 @@ class App extends Component {
             <div style={{paddingLeft:10}}><a class="github-button" href="https://github.com/slashdigital/khmer-chatbot-up2018/fork" data-size="large" data-show-count="true" aria-label="Fork slashdigital/khmer-chatbot-up2018 on GitHub">Fork</a></div>
           </div>
         </div>
-        <div style={{width:'50%', margin: '0 auto', position:'relative'}} >  
-              <div style={{marginBottom:50,}}>
+        <div style={{width:'50%', margin: '0 auto',}} >  
+              <div style={{marginBottom:60, marginTop:55,}}>
                   <ChatFeed
                       messages={this.state.messages} // Boolean: list of message objects
                       isTyping={this.state.is_typing} // Boolean: is the recipient typing
                       hasInputField={false} // Boolean: use our input, or use your own
                       showSenderName={false} // show the name of the user who sent the message
                       bubblesCentered={true} //Boolean should the bubbles be centered in the feed?
-                      // JSON: Custom bubble styles
-                      bubbleStyles={{ text: { fontSize: 15,  fontFamily: 'Bayon' },chatbubble: { textAlign: 'left', borderRadius: 10, padding: 10, marginLeft:15, marginRight:15}}}
+                      bubbleStyles={{ text: { fontSize: 18,  fontFamily: 'Bayon',color:'black' },chatbubble: { textAlign: 'left', borderRadius: 10, padding: 10, marginLeft:15, marginRight:15}}}
                   />
               </div>
-              <div style={{flex:1, flexDirection: 'row', display:'flex', width:'50%', margin: '0 auto', position: 'fixed', bottom: 0, left: 0, right: 0,}}>
+              <div style={{flex:1, flexDirection: 'row', display:'flex', width:'50%', margin: '0 auto', position: 'fixed', bottom: 0, left: 0, right: 0, backgroundColor:'white', paddingBottom:20}}>
                   <div style={{flex:1}}> 
                     <MessageInput
                         onKeyPress={this.onKeyPress}
@@ -122,7 +121,7 @@ class App extends Component {
                         onValueChange={this.onValueChange}
                     />
                   </div>
-                  <button style={{backgroundColor:'transparent', borderColor:'tranparent', borderWidth:0}} 
+                  <button style={{backgroundColor:'white', borderColor:'tranparent', borderWidth:0, border:'1px solid Gainsboro'}} 
                       onClick={this.onSend}> 
                       <img src={send_icon} alt="send"/>
                   </button>
@@ -138,11 +137,13 @@ const MessageInput = ({message, onValueChange, onKeyPress})=>(
       style={
         {width: '99%', 
         height: 40, 
-        fontSize: 15, 
+        fontSize: 18, 
         border: '0 !important', 
         boxShadow: '0 !important',
         outline: 'none',
-        fontFamily: 'Bayon'
+        color:'black',
+        fontFamily: 'Bayon',
+        paddingLeft:20
       }}
       onChange={onValueChange}
       onKeyPress={onKeyPress}
