@@ -135,7 +135,7 @@ class App extends Component {
 const MessageInput = ({message, onValueChange, onKeyPress})=>(
     <input
       style={
-        {width: '99%', 
+        {width: '97%', 
         height: 40, 
         fontSize: 18, 
         border: '0 !important', 
@@ -143,7 +143,7 @@ const MessageInput = ({message, onValueChange, onKeyPress})=>(
         outline: 'none',
         color:'black',
         fontFamily: 'Bayon',
-        paddingLeft:20
+        paddingLeft:20,
       }}
       onChange={onValueChange}
       onKeyPress={onKeyPress}
